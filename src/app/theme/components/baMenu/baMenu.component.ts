@@ -31,6 +31,8 @@ export class BaMenu {
   public outOfArea:number = -200;
 
   constructor(private _router:Router, private _service:BaMenuService, private _state:AppState) {
+
+    console.log("constructor");
     this._onRouteChange = this._router.events.subscribe((event) => {
 
       if (event instanceof NavigationEnd) {
@@ -52,10 +54,21 @@ export class BaMenu {
   }
 
   public ngOnInit():void {
+    console.log("init menuRoutes",this.menuRoutes);
     this.menuItems = this._service.convertRoutesToMenus(this.menuRoutes);
+    console.log("init",this);
   }
 
+  // public ngDoCheck():void
+  // {
+  //   console.log(this);
+  //   this.menuItems = this._service.convertRoutesToMenus(this.menuRoutes);
+  // }
+
   public ngOnDestroy():void {
+
+    console.log("destroy",this);
+    // this.menuItems = null;
     this._onRouteChange.unsubscribe();
   }
 

@@ -22,6 +22,10 @@ import {Editors} from './editors/editors.component';
 import {Ckeditor} from './editors/components/ckeditor/ckeditor.component';
 import {Components} from './components/components.component';
 import {TreeView} from './components/components/treeView/treeView.component';
+import {App} from "../app";
+import {About} from "../components/about/about";
+import {Todo} from "./dashboard/todo/todo.component";
+import {TodolistComponent} from "../components/todolist/todolist.component";
 
 //noinspection TypeScriptValidateTypes
 export const PagesRoutes:RouterConfig = [
@@ -39,6 +43,32 @@ export const PagesRoutes:RouterConfig = [
             selected: false,
             expanded: false,
             order: 0
+          }
+        }
+      },
+      {
+        path: 'about',
+        component: About,
+        data: {
+          menu: {
+            title: 'About',
+            icon: 'ion-android-home',
+            selected: false,
+            expanded: false,
+            order: 50
+          }
+        }
+      },
+      {
+        path: 'todolist',
+        component: TodolistComponent,
+        data: {
+          menu: {
+            title: 'ToDoList',
+            icon: 'ion-android-home',
+            selected: false,
+            expanded: false,
+            order: 50
           }
         }
       },

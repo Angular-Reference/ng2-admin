@@ -10,6 +10,7 @@ export class BaMenuService {
   }
 
   public convertRoutesToMenus(routes:RouterConfig):any[] {
+    console.log("routes:", routes);
     let items = this._convertArrayToItems(routes);
     return this._skipEmpty(items);
   }

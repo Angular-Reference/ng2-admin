@@ -13,7 +13,7 @@ import {ENV_PROVIDERS} from './platform/environment';
  * App Component
  * our top level component that holds all of our components
  */
-import {App, APP_PROVIDERS} from './app';
+import {App, APP_PROVIDERS, AppNg2Admin} from './app';
 
 
 /*
@@ -22,12 +22,13 @@ import {App, APP_PROVIDERS} from './app';
  */
 export function main(initialHmrState?: any): Promise<any> {
 
-  return bootstrap(App, [
+  return bootstrap(AppNg2Admin, [
     ...PROVIDERS,
     ...ENV_PROVIDERS,
     ...DIRECTIVES,
     ...PIPES,
     ...APP_PROVIDERS
+
   ])
   .catch(err => console.error(err));
 

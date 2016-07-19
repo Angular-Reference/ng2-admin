@@ -4,6 +4,7 @@ import {AppState} from '../../../app.state';
 import {BaProfilePicturePipe} from '../../pipes';
 import {BaMsgCenter} from '../../components/baMsgCenter';
 import {BaScrollPosition} from '../../directives';
+import {NavbarComponent} from "../../../shared/navbar/navbar.component";
 
 @Component({
   selector: 'ba-page-top',

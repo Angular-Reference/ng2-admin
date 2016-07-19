@@ -1,5 +1,6 @@
 import {Component, ViewEncapsulation} from '@angular/core';
 import {BaPageTop, BaContentTop, BaSidebar, BaBackTop} from '../theme/components';
+import {NavbarComponent} from "../shared/navbar/navbar.component";
 
 @Component({
   selector: 'pages',
@@ -7,8 +8,10 @@ import {BaPageTop, BaContentTop, BaSidebar, BaBackTop} from '../theme/components
   styles: [],
   directives: [BaPageTop, BaSidebar, BaContentTop, BaBackTop],
   template: `
+  
     <ba-sidebar></ba-sidebar>
     <ba-page-top></ba-page-top>
+      
     <div class="al-main">
       <div class="al-content">
         <ba-content-top></ba-content-top>

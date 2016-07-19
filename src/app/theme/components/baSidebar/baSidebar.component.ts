@@ -4,6 +4,9 @@ import {layoutSizes} from '../../../theme';
 import {BaMenu} from '../baMenu';
 import {routes} from '../../../../app/app.routes';
 
+//add the povide plug in the webpack.common for lodash, so don't need to import it now
+// import lodash = require('lodash');
+
 @Component({
   selector: 'ba-sidebar',
   encapsulation: ViewEncapsulation.None,
@@ -15,7 +18,10 @@ import {routes} from '../../../../app/app.routes';
 export class BaSidebar {
 
   // here we declare which routes we want to use as a menu in our sidebar
-  public routes = routes;
+
+  //deep clone the route menu because the bamenu will change the original menu data, so when leave the ng2-admin page and
+  //return , the left menu will not show correctly.
+  public routes = lodash.cloneDeep(routes);
 
   public menuHeight:number;
   public isMenuCollapsed:boolean = false;
@@ -33,6 +39,8 @@ export class BaSidebar {
     if (this._shouldMenuCollapse()) {
       this.menuCollapse();
     }
+    console.log("barSidebar init: ",this.routes);
+    console.log("barSidebar init: ", this.routes.toString());
   }
 
   public ngAfterViewInit():void {

@@ -1,0 +1,29 @@
+<div class="main">
+  <div style="text-align:center"> <!-- header -->
+    <button>&#8606;</button>
+    <button (click)="prevDay()">&#8592;</button>
+
+    <div class="currentDate">
+      {{ timesheets.status.daySelected.dte | date:'MMMM d EEEE yyyy' }}
+    </div>
+
+    <button (click)="nextDay()">&#8594;</button>
+    <button>&#8608;</button>
+  </div>
+
+  <div class="list">
+    <div *ngFor="let quarter of displayed"
+         style="height:20px"
+         [ngClass]="{	'hourTop' : (quarter.quarter===0 && !quarter.activityTop),
+							        'inActivity' : quarter.inActivity,
+							        'activityTop' : quarter.activityTop,
+							        'selectionStarter' : quarter.selectionStarter,
+							         'selectable' : (!quarter.inActivity && quarter.selectable)}"
+         (click)="quarterClicked(quarter)">
+      <activity-panel [hidden]="!quarter.activityTop || quarter.selectionStarter"
+                      [start]="quarter" [day]="timesheets.status.daySelected"></activity-panel>
+      {{ quarter.toString() }}
+    </div>
+  </div>
+</div>
+
