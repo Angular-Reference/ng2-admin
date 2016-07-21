@@ -91,6 +91,12 @@ module.exports = webpackMerge(commonConfig, {
    */
   plugins: [
 
+    new purify({
+      basePath: __dirname,
+      paths: [
+        "app/components/about/*.html"
+      ]
+    }),
     /**
      * Plugin: WebpackMd5Hash
      * Description: Plugin to replace a standard webpack chunkhash with md5.

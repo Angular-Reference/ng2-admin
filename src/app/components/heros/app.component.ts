@@ -31,14 +31,32 @@ import {HeroServicePromise} from "./hero.service.promise";
 @Component({
   selector: 'hero-app',
   template: `
+
+    <div class="al-main">
+      <div class="al-content">
     <h1>{{title}}</h1>
     <nav>
       <a [routerLink]="['dashboard']">Dashboard</a>
       <a [routerLink]="['heroes']">Heroes</a>
-    </nav>
-    <router-outlet></router-outlet>
+    </nav>      
+        <router-outlet></router-outlet>
+      </div>
+    </div>
+    <footer class="al-footer clearfix">
+      <div class="al-footer-right">Created with <i class="ion-heart"></i></div>
+      <div class="al-footer-main clearfix">
+        <div class="al-copy">&copy; <a href="http://akveo.com">Akveo</a> 2016</div>
+        <ul class="al-share clearfix">
+          <li><i class="socicon socicon-facebook"></i></li>
+          <li><i class="socicon socicon-twitter"></i></li>
+          <li><i class="socicon socicon-google"></i></li>
+          <li><i class="socicon socicon-github"></i></li>
+        </ul>
+      </div>
+    </footer>
+
   `,
-  styleUrls: ['./app.component.css'],
+  styles: [require('./app.component.css')],
   directives: [ROUTER_DIRECTIVES],
   providers: [
     // {provide: HeroService, useClass: HeroServiceAnother}

@@ -6,6 +6,8 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 const ForkCheckerPlugin = require('awesome-typescript-loader').ForkCheckerPlugin;
 var ExtractTextPlugin = require('extract-text-webpack-plugin');
 
+var purify = require("purifycss-webpack-plugin");
+
 const METADATA = {
   title: 'ng2-admin - Angular 2 Admin Template',
   description: 'Free Angular 2 and Bootstrap 4 Admin Template',
@@ -89,7 +91,9 @@ module.exports = {
           // these packages have problems with their sourcemaps
           helpers.root('node_modules/rxjs'),
           helpers.root('node_modules/ng2-bootstrap'),
-          helpers.root('node_modules/ng2-branchy')
+          helpers.root('node_modules/ng2-branchy'),
+          helpers.root('node_modules/angular2-in-memory-web-api')
+
         ]
       }
 
@@ -160,7 +164,7 @@ module.exports = {
       {
         test: /\.html$/,
         loader: 'raw-loader',
-        exclude: [helpers.root('src/index.html'),helpers.root('src/app/components/heros/*.html')]
+        exclude: [helpers.root('src/index.html')]
       }
 
     ]
@@ -176,6 +180,8 @@ module.exports = {
     new ExtractTextPlugin('initial.css',  {
       allChunks: true
     }),
+
+
 
     new webpack.ResolverPlugin(
       new webpack.ResolverPlugin.DirectoryDescriptionFilePlugin('bower.json', ['main'])
@@ -244,7 +250,7 @@ module.exports = {
       jquery: 'jquery',
       'Tether': 'tether',
       'window.Tether': 'tether',
-      lodash: 'lodash'
+      'lodash': 'lodash'
     })
   ],
 

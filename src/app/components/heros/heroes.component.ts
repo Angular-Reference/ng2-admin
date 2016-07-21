@@ -10,8 +10,8 @@ import {error} from "util";
 
 @Component({
   selector: 'my-heroes',
-  templateUrl: './heroes.component.html',
-  styleUrls:  ['./heroes.component.css'],
+  template: require('./heroes.component.html'),
+  styles:  [require('./heroes.component.css')],
   directives: [HeroDetailComponent]
 })
 export class HeroesComponent implements OnInit {
@@ -43,7 +43,7 @@ export class HeroesComponent implements OnInit {
 
   gotoDetail() {
     // this._router.navigate(['HeroDetail', { id: this.selectedHero.id }]);
-    this._router.navigate(['herohome/detail', this.selectedHero.id ]);
+    this._router.navigate(['components/herohome/detail', this.selectedHero.id ]);
 
   }
 }

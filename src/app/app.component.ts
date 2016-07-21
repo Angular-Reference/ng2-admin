@@ -5,7 +5,7 @@ import {BaThemeConfigProvider, BaThemeConfig} from "./theme";
 import {BaThemeRun} from "./theme/directives";
 import {BaImageLoaderService, BaThemePreloader, BaThemeSpinner} from "./theme/services";
 import {layoutPaths} from "./theme/theme.constants";
-import {NavbarComponent} from "./shared/navbar/navbar.component";
+import {NavbarComponent,CONSTANTS} from "./shared";
 
 /*
  * App Component
@@ -18,21 +18,20 @@ import {NavbarComponent} from "./shared/navbar/navbar.component";
   providers: [BaThemeConfigProvider, BaThemeConfig, BaImageLoaderService, BaThemeSpinner],
   encapsulation: ViewEncapsulation.None,
   styles: [require('normalize.css'), require('./app.scss')],
-  template: `
 
-    <!--<main [ngClass]="{'menu-collapsed': isMenuCollapsed}" baThemeRun>-->
-    <as-navbar></as-navbar>
-    
-<div>
-<main [ngClass]="{'menu-collapsed': isMenuCollapsed}" baThemeRun>
-<div class="additional-bg"></div>
-  <router-outlet></router-outlet>
-</main>  
-</div>
-    <!--</main>-->
+  template: `
+    <as-navbar [brand]=""></as-navbar>
+    <div>
+      <main [ngClass]="{'menu-collapsed': isMenuCollapsed}" baThemeRun>
+      <div class="additional-bg"></div>
+        <router-outlet></router-outlet>
+      </main>  
+    </div>
   `
 })
 export class AppNg2Admin {
+
+  brand:string = CONSTANTS.MAIN.APP.BRAND;
 
   isMenuCollapsed:boolean = false;
 

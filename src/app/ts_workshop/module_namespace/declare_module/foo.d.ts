@@ -11,4 +11,4 @@
 // }
 
 declare var fooVal : any;
-fooVal = "2333";
+// fooVal = "2333";

@@ -7,8 +7,8 @@ import { Router, ActivatedRoute }       from '@angular/router';
 
 @Component({
   selector: 'my-hero-detail',
-  templateUrl: './hero-detail.component.html',
-  styleUrls: ['./hero-detail.component.css']
+  template: require('./hero-detail.component.html'),
+  styles: [require('./hero-detail.component.css')]
 })
 export class HeroDetailComponent implements OnInit, OnDestroy   {
   @Input() hero: Hero;

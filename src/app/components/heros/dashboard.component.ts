@@ -6,8 +6,8 @@ import { HeroService } from './hero.service';
 
 @Component({
   selector: 'my-dashboard',
-  templateUrl: './dashboard.component.html',
-  styleUrls: ['./dashboard.component.css']
+  template: require('./dashboard.component.html'),
+  styles: [require('./dashboard.component.css')]
 })
 
 
@@ -26,7 +26,7 @@ export class DashboardComponent implements OnInit {
   }
 
   gotoDetail(hero: Hero) {
-    let link = ['herohome/detail',  hero.id ];
+    let link = ['components/herohome/detail',  hero.id ];
     console.log(link);
     this._router.navigate(link);
   }
